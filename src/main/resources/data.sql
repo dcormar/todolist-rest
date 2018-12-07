@@ -1,0 +1,1 @@
+INSERT INTO TASKS (NAME, CATEGORY, DESCRIPTION) VALUES ('Pick up the kids', 'Family', 'Go to school in the evening to pick up the kids when they finish karate lesson.');

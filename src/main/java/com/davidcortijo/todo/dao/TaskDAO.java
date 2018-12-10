@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,14 @@ public class TaskDAO implements ITaskDAO {
     @Override
     public Task getTaskById(int taskId){
         return entityManager.find(Task.class, taskId);
+    }
+
+    @Override
+    public List<Task> getTasksByName(String taskName){
+        String hql = "FROM Task where name = :taskName";
+        Query query = entityManager.createQuery(hql);
+        query.setParameter("taskName", taskName);
+        return (List<Task>) query.getResultList();
     }
 
     @Override

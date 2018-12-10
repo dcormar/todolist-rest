@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface ITaskDAO {
     List<Task> getAllTasks();
     Task getTaskById(int taskId);
+    List<Task> getTasksByName(String taskName);
     void addATask(Task task);
     void updateTask(Task task);
     void deleteTask(int taskId);

@@ -1,1 +1,4 @@
-INSERT INTO TASKS (NAME, CATEGORY, DESCRIPTION) VALUES ('Pick up the kids', 'Family', 'Go to school in the evening to pick up the kids when they finish karate lesson.');
+INSERT INTO TASKS (NAME, CATEGORY, DESCRIPTION) VALUES ('Pick up the kids', 'Personal', 'Go to school in the evening to pick up the kids when they finish karate lesson.');
+INSERT INTO TASKS (NAME, CATEGORY, DESCRIPTION) VALUES ('Deliver the first release document', 'Work', 'Send out by mail the fianl version of the first release document to the client.');
+INSERT INTO TASKS (NAME, CATEGORY, DESCRIPTION) VALUES ('Gym - Pilates', 'Personal', 'Attend Pilates workout at the gym.');
+INSERT INTO TASKS (NAME, CATEGORY, DESCRIPTION) VALUES ('Meeting with Robert', 'Work', 'Meeting with Robert Fulton regarding the new budget at room 24 second floor.');

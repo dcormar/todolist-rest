@@ -24,6 +24,10 @@ public class Task implements Serializable{
     @Column(name="description")	
 	private String description;
 
+	public Task () {
+
+	}
+
 	public int getTaskId() {
 		return this.taskId;
 	}

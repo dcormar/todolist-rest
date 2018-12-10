@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.davidcortijo.todo.beans.Task;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public interface ITaskDAO {
     List<Task> getAllTasks();
     Task getTaskById(int taskId);

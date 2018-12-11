@@ -11,21 +11,30 @@ import org.springframework.stereotype.Service;
 public class TaskService implements ITaskService {
     @Autowired
     private ITaskDAO taskDAO;
-     
-    public List<Task> getAllTasks(){
+    
+    @Override
+    public List<Task> getAllTasks() {
         return taskDAO.getAllTasks();
-     }
-    public Task getTaskById(int taskId){
+    }
+    @Override
+    public Task getTaskById(int taskId) {
         return taskDAO.getTaskById(taskId);
-     }
-    public boolean addTask(Task task){
+    }
+    @Override
+     public List<Task> getTasksByName(String taskName) {
+        return taskDAO.getTasksByName(taskName);
+    }
+    @Override
+    public boolean addTask(Task task) {
         taskDAO.addATask(task);
         return true;
-     }
-    public void updateTask(Task task){
+    }
+    @Override
+    public void updateTask(Task task) {
         taskDAO.updateTask(task);
-     }
-    public void deleteTask(int taskId){
+    }
+    @Override
+    public void deleteTask(int taskId) {
         taskDAO.deleteTask(taskId);
-     }
+    }
 } 

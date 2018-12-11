@@ -1,7 +1,6 @@
-package com.davidcortijo.todo;
+package com.davidcortijo.todo.dao;
 
 import com.davidcortijo.todo.beans.Task;
-import com.davidcortijo.todo.dao.ITaskDAO;
 
 import static org.assertj.core.api.Assertions.*;
 

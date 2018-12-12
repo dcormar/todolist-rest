@@ -58,6 +58,6 @@ public class TodoEndpoint {
         logger.info("Task " + task.getName() + " already exits.");
         return Response.status(Status.CONFLICT).build();
         }
-        return Response.created(URI.create("/spring-app/article/"+ task.getTaskId())).build();
+        return Response.created(URI.create("/rest/details/"+ task.getTaskId())).build();
     }
 }

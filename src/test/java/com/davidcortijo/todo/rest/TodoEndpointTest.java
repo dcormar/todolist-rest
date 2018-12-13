@@ -15,14 +15,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -42,8 +48,25 @@ public class TodoEndpointTest {
 
     private static final String BASE_URL = "/todo/rest";
 
+    @TestConfiguration
+    static class TestRestTemplateAuthenticationConfiguration {
+
+        @Value("${spring.security.user.name}")
+        private String userName;
+    
+        @Value("${spring.security.user.password}")
+        private String password;
+
+        @Bean
+		public RestTemplateBuilder restTemplateBuilder() {
+			return new RestTemplateBuilder().basicAuthentication(userName, password);
+		}
+    }
+    
+
     @Autowired
     private TestRestTemplate restTemplate;
+
 
     /*
     @Autowired
@@ -79,6 +102,7 @@ public class TodoEndpointTest {
     
     @Test
     public void shouldStartWithOneTestTask() {
+        //ResponseEntity <String> entity = restTemplate.withBasicAuth("user", "password").getForEntity(BASE_URL + "/list", String.class);
         ResponseEntity <String> entity = restTemplate.getForEntity(BASE_URL + "/list", String.class);
         assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
         List <Task> returnedTaskList = null;

@@ -12,6 +12,7 @@ import com.davidcortijo.todo.service.ITaskService;
 import java.net.URI;
 import java.util.List;
 
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -23,9 +24,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@Path("/todo/rest")
+@Path("/todo")
 public class TodoEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(TodoEndpoint.class);	
+
+    public TodoEndpoint () {
+        logger.info("Created Jersey resource TodoEndpoint");
+    }
 
     @Autowired
 	private ITaskService taskService;

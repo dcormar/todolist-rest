@@ -41,12 +41,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @RunWith(SpringRunner.class)
-//@AutoConfigureMockMvc unit tests are not available on Jackson, you must perform unit tests (=> start up the app server)
+//@AutoConfigureMockMvc unit tests are not available on Jackson, you must perform integration tests (=> start up the app server)
 @SpringBootTest (webEnvironment = WebEnvironment.RANDOM_PORT)
 public class TodoEndpointTest {
     private static final Logger logger = LoggerFactory.getLogger(TodoEndpointTest.class);	
 
-    private static final String BASE_URL = "/todo/rest";
+    private static final String BASE_URL = "/jersey/todo";
 
     @TestConfiguration
     static class TestRestTemplateAuthenticationConfiguration {

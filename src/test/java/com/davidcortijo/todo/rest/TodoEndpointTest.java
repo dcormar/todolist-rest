@@ -67,11 +67,6 @@ public class TodoEndpointTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-
-    /*
-    @Autowired
-    private MockMvc mvc;
-    */
     @MockBean
     private ITaskService taskService;
 
@@ -97,7 +92,6 @@ public class TodoEndpointTest {
     @Test
     public void contextLoads() {
         assertThat(restTemplate).isNotNull();
-        //assertThat(mvc).isNotNull();
     }
     
     @Test
@@ -117,16 +111,4 @@ public class TodoEndpointTest {
         assertThat(returnedTaskList).hasSize(1);
         assertThat(returnedTaskList.get(0).getName()).isEqualTo("Test task 1");
     }
-
-    /*
-    @Test
-    public void shouldStartWithOneTestTask() throws Exception {
-        MvcResult result = mvc.perform(get(BASE_URL).accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$", hasSize(1)))
-        .andExpect(jsonPath("$[0].name", is("Test task 1")))
-        .andReturn();
-    }
-    */
-
 }
